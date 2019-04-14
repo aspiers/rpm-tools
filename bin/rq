@@ -39,7 +39,8 @@ else
     extras=( )
   fi
 
-  if [ -f /etc/SuSE-release ]; then
+  if [[ -f /etc/SuSE-release ]] ||
+         ( [[ -f /etc/os-release ]] && grep -q SUSE /etc/os-release ); then
       SUSE=( --qf "disturl: %{disturl}\n" )
   else
       SUSE=( )
